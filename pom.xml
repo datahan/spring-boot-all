@@ -9,6 +9,10 @@
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>spring-boot-all-helloworld</module>
+        <module>spring-boot-all-properties</module>
+        <module>spring-boot-all-actuator</module>
+        <module>spring-boot-all-log-aop</module>
+        <module>spring-boot-all-exception-handler</module>
     </modules>
     <packaging>pom</packaging>
 
