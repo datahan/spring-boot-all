@@ -13,6 +13,7 @@
         <module>spring-boot-all-actuator</module>
         <module>spring-boot-all-log-aop</module>
         <module>spring-boot-all-exception-handler</module>
+        <module>spring-boot-all-zookeeper-lock</module>
     </modules>
     <packaging>pom</packaging>
 
