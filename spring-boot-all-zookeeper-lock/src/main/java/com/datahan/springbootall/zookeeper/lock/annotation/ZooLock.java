@@ -20,7 +20,7 @@ public @interface ZooLock {
     String key();
 
     /**
-     * 锁释放时间，默认五秒
+     * 获取锁等待时间，默认五秒
      */
     long timeout() default 5 * 1000;
 

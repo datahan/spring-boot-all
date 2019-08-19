@@ -62,16 +62,17 @@ public class ZooLockAspect {
         }
         String lockKey = buildLockKey(zooLock, method, args);
         InterProcessMutex lock = new InterProcessMutex(zkClient, lockKey);
-        try {
-            // 假设上锁成功，以后拿到的都是 false
-            if (lock.acquire(zooLock.timeout(), zooLock.timeUnit())) {
+
+        // 在指定时间内获取锁，成功则执行
+        if (lock.acquire(zooLock.timeout(), zooLock.timeUnit())) {
+            try {
                 return point.proceed();
-            } else {
-                throw new RuntimeException("请勿重复提交");
             }
-        } finally {
-            lock.release();
+            finally {
+                lock.release();
+            }
         }
+        throw new RuntimeException("请勿重复提交");
     }
 
     /**
