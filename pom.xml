@@ -14,6 +14,7 @@
         <module>spring-boot-all-log-aop</module>
         <module>spring-boot-all-exception-handler</module>
         <module>spring-boot-all-zookeeper-lock</module>
+        <module>spring-boot-all-ehcache</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -27,6 +28,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring.boot.version>2.1.6.RELEASE</spring.boot.version>
         <common.lang3.version>3.8.1</common.lang3.version>
+        <guava.version>27.1-jre</guava.version>
     </properties>
 
     <dependencyManagement>
@@ -42,6 +44,11 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${common.lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

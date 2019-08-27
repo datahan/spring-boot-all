@@ -1,8 +1,11 @@
 package com.datahan.springbootall.zookeeper.lock;
 
+import com.datahan.springbootall.zookeeper.lock.model.Person;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
 
+import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.IntStream;
 
@@ -11,6 +14,7 @@ import java.util.stream.IntStream;
  * @author: jim.han
  * @date: Created in 2019-08-17 15:35
  */
+@Slf4j
 public class Tester {
 
     @Test
@@ -95,5 +99,26 @@ public class Tester {
         identityHashMap.put(x1, "first");
         identityHashMap.put(x2, "second");
         System.out.println(identityHashMap);
+    }
+
+    @Test
+    public void testTwoDimensionArray() {
+        int[][] arr1 = {{1,2,3},{4,5,6,7}};
+        System.out.println(arr1.length);
+    }
+
+    @Test
+    public void testReflection() {
+        Class<?> person = Person.class;
+        Field[] declaredFields = person.getDeclaredFields();
+        for (Field field : declaredFields) {
+            String name = field.getName();
+            System.out.println(name);
+            Class<? extends Field> aClass = field.getClass();
+            System.out.println(aClass.getName());
+            System.out.println(aClass.getCanonicalName());
+            System.out.println(aClass.getSimpleName());
+            System.out.println(aClass.getTypeName());
+        }
     }
 }
